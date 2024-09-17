@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperHero 
+public class SuperHero : MonoBehaviour
 {
     // Attributes
-    protected string name;
+    protected string _name;
     public string Name
     {
         get 
         {
-            return name;        
+            return _name;        
         }
 
         set
         {
             if(value == null || value == "")
             {
-                name = "N/A";
+                _name = "N/A";
             }
-            name = value;
+            _name = value;
         }
     }
 
@@ -42,29 +42,23 @@ public class SuperHero
     }
 
     // Constructor
-    public SuperHero(string newName, int newHp, string newSuitColor)
-    {
-        name = newName;
-        hp = newHp;
-        SuitColor = newSuitColor;
-        armorStrength = 10;
-    }
+    
 
     public void UpdateArmorStrength(float strength)
     {
         armorStrength += strength;
-        Debug.Log($"********** {name} updated their strength {armorStrength}");
+        Debug.Log($"********** {_name} updated their strength {armorStrength}");
     }
 
     // New Method: TakeDamage
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        Debug.Log($"{name} took {damage} damage, remaining HP: {hp}");
+        Debug.Log($"{_name} took {damage} damage, remaining HP: {hp}");
 
         if (IsDead())
         {
-            Debug.Log($"{name} is dead.");
+            Debug.Log($"{_name} is dead.");
         }
     }
 
