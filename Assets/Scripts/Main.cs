@@ -4,6 +4,7 @@ using UnityEngine;
 public class Main : MonoBehaviour
 {
     IronMan ironMan = new IronMan("Tony Stark", 100, "Red");
+    private object ironman;
     CaptainAmerica captainAmerica = new CaptainAmerica("Steve Rogers", 100, "Blue");
     int round = 0;
     // Start is called before the first frame update
@@ -11,6 +12,9 @@ public class Main : MonoBehaviour
     {
        
         Debug.Log("====== Battle Begins ======");
+        
+        //Debug.Log($"IronMan Name is {ironman.Name} hp is : {ironman.G}");
+
 
     }
 
@@ -22,7 +26,8 @@ public class Main : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Round {round++}");
+        Debug.Log($"Round {round+ 1}");
+
         // IronMan attacks Captain America
         int damageIronMan = Random.Range(10, 21);
         ironMan.ShootLaser();
@@ -33,6 +38,7 @@ public class Main : MonoBehaviour
         int damageCaptain = Random.Range(10, 21);
         captainAmerica.ThrowShield();
         ironMan.TakeDamage(damageCaptain);
-       
+        Debug.Log($"Round {round++}");
+        //Debug.Log($"");
     }
 }
